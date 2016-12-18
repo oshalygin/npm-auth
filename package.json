@@ -1,0 +1,46 @@
+{
+  "name": "npm-auth",
+  "version": "1.0.0",
+  "description": "Utility that sets the npmrc credentials based on environment variables",
+  "author": "Oleg Shalygin <oshalygin@gmail.com>",
+  "license": "MIT",
+  "main": "/dist/npm-auth",
+  "scripts": {
+    "lint": "eslint \"src/**\" --color",
+    "start": "node dist/npm-auth",
+    "test": "mocha src/testSetup.js \"src/**/*.spec.js\" --reporter spec",
+    "test:cover": "npm run build && babel-node node_modules/isparta/bin/isparta cover --root src --report lcov _mocha -- --require ./src/testSetup.js \"src/**/*.spec.js\" --reporter spec",
+    "codacity:coverage": "cat ./coverage/lcov.info | codacy-coverage",
+    "build": "babel src --out-dir dist --ignore spec.js,testSetup.js",
+    "push": "babel-node publish.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oshalygin/npm-auth.git"
+  },
+  "bin": {
+    "npm-auth": "dist/npm-auth.js"
+  },
+  "publishConfig": {
+    "registry": ""
+  },
+  "bugs": {
+    "url": "https://github.com/oshalygin/npm-auth/issues"
+  },
+  "homepage": "https://github.com/oshalygin/npm-auth#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-preset-latest": "^6.16.0",
+    "babel-preset-stage-1": "^6.16.0",
+    "babel-register": "^6.18.0",
+    "eslint": "^3.11.1",
+    "mocha": "^3.2.0",
+    "isparta": "^4.0.0",
+    "istanbul": "^0.4.5",
+    "codacy-coverage": "^2.0.0",
+    "chai": "^3.5.0"
+  }
+}
