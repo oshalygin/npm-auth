@@ -1,3 +1,3 @@
 #! /usr/bin/env node
 
-// require('./generate-npmrc.js');
+require('./generate-npmrc.js');
