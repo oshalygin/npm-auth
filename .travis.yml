@@ -16,5 +16,5 @@ script:
 after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
       npm run start;
-      #npm publish;
+      npm publish;
     fi
