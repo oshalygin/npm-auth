@@ -9,7 +9,7 @@ This utility is used to set the credentials in `.npmrc` locally to authenticate 
 
 * This utility depends on various environment variables being set, specifically:
 * `NPM_REGISTRY_API_KEY` => the value of `_auth`.
-* `NPM_REGISTRY_EMAIL` => the email used to authenticate with, default: `atom.headless`.  The default value will be used if this environment variable is not set.
+* `NPM_REGISTRY_EMAIL` => the email used to authenticate with.  The default value will be used if this environment variable is not set.
 * `NPM_REGISTRY` => the registry that the utility will authenticate against. 
 
 ####Installation

@@ -12,8 +12,8 @@ describe('Generating .npmrc Integration Tests', () => {
 
   it('should create a local .npmrc file and set the environment variables', (done) => {
     process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
-    process.env['NPM_REGISTRY_EMAIL'] = 'atom.headless@sadasystems.com';
-    process.env['NPM_REGISTRY'] = 'https://sadasystems.jfrog.io/sadasystems/api/npm/atom-npm';
+    process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
+    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
 
     const expected = 'Creating a temporary .npmrc file which will be used to authenticate\nSuccessfully updated the local .npmrc file\n';
 
@@ -30,8 +30,8 @@ describe('Generating .npmrc Integration Tests', () => {
 
   it('should create a local .npmrc file and contain the api key that was set', (done) => {
     process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
-    process.env['NPM_REGISTRY_EMAIL'] = 'atom.headless@sadasystems.com';
-    process.env['NPM_REGISTRY'] = 'https://sadasystems.jfrog.io/sadasystems/api/npm/atom-npm';
+    process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
+    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
 
     const expected = `_auth=${process.env['NPM_REGISTRY_API_KEY']}`;
     const authApiKeyIndex = 0;
@@ -49,8 +49,8 @@ describe('Generating .npmrc Integration Tests', () => {
 
   it('should create a local .npmrc file and contain the email key that was set', (done) => {
     process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
-    process.env['NPM_REGISTRY_EMAIL'] = 'atom.headless@sadasystems.com';
-    process.env['NPM_REGISTRY'] = 'https://sadasystems.jfrog.io/sadasystems/api/npm/atom-npm';
+    process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
+    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
 
     const expected = `email=${process.env['NPM_REGISTRY_EMAIL']}`;
     const emailIndex = 2;
@@ -68,8 +68,8 @@ describe('Generating .npmrc Integration Tests', () => {
 
   it('should create a local .npmrc file and contain the registry endpoint that was set', (done) => {
     process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
-    process.env['NPM_REGISTRY_EMAIL'] = 'atom.headless@sadasystems.com';
-    process.env['NPM_REGISTRY'] = 'https://sadasystems.jfrog.io/sadasystems/api/npm/atom-npm';
+    process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
+    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
 
     const expected = `registry=${process.env['NPM_REGISTRY']}`;
     const registryIndex = 3;
@@ -85,8 +85,8 @@ describe('Generating .npmrc Integration Tests', () => {
 
   it('should create a .npmrc file in the src folder and contain the registry endpoint that was set', (done) => {
     process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
-    process.env['NPM_REGISTRY_EMAIL'] = 'atom.headless@sadasystems.com';
-    process.env['NPM_REGISTRY'] = 'https://sadasystems.jfrog.io/sadasystems/api/npm/atom-npm';
+    process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
+    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
 
     const expected = `registry=${process.env['NPM_REGISTRY']}`;
     const registryIndex = 3;
