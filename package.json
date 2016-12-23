@@ -9,7 +9,7 @@
     "lint": "eslint \"src/**\" --color",
     "start": "node dist/npm-auth",
     "test": "mocha src/testSetup.js \"src/**/*.spec.js\" --reporter spec",
-    "test:cover": "npm run build && babel-node node_modules/isparta/bin/isparta cover --root src --report lcov _mocha -- --require ./src/testSetup.js \"src/**/*.spec.js\" --reporter spec",
+    "test:cover": "npm run build && babel-node node_modules/isparta/bin/isparta cover --root src --report lcov _mocha -- --require ./utilities/testSetup.js \"src/**/*.spec.js\" --reporter spec",
     "codacity:coverage": "cat ./coverage/lcov.info | codacy-coverage",
     "build": "babel src --out-dir dist --ignore spec.js,testSetup.js",
     "push": "babel-node publish.js"
