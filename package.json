@@ -21,9 +21,6 @@
   "bin": {
     "npm-auth": "dist/npm-auth.js"
   },
-  "publishConfig": {
-    "registry": ""
-  },
   "bugs": {
     "url": "https://github.com/oshalygin/npm-auth/issues"
   },
