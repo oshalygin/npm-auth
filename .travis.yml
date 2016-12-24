@@ -16,6 +16,7 @@ after_success:
   - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then
       npm run build;
       npm run start;
+      sudo rm .npmrc;
     fi
 
 deploy:

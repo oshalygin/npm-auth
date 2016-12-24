@@ -11,15 +11,11 @@
     "test": "npm run build && babel-node node_modules/isparta/bin/isparta cover --root src --report lcov _mocha -- --require ./utilities/testSetup.js \"src/**/*.spec.js\" --reporter spec",
     "test:cover": "npm run build && babel-node node_modules/isparta/bin/isparta cover --root src --report lcov _mocha -- --require ./utilities/testSetup.js \"src/**/*.spec.js\" --reporter spec",
     "codacity:coverage": "cat ./coverage/lcov.info | codacy-coverage",
-    "build": "babel src --out-dir dist --ignore spec.js,testSetup.js",
-    "push": "babel-node publish.js"
+    "build": "babel src --out-dir dist --ignore spec.js,testSetup.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oshalygin/npm-auth.git"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
   },
   "bin": {
     "npm-auth": "dist/npm-auth.js"
