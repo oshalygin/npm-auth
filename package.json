@@ -1,6 +1,6 @@
 {
   "name": "npm-auth",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Utility that sets the npmrc credentials based on environment variables",
   "author": "Oleg Shalygin <oshalygin@gmail.com>",
   "license": "MIT",

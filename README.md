@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/oshalygin/npm-auth.svg?branch=master)](https://travis-ci.org/oshalygin/npm-auth)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4d47986f49e94df8a4d33ac07853ab0e)](https://www.codacy.com/app/oshalygin/npm-auth?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=oshalygin/npm-auth&amp;utm_campaign=Badge_Grade)
 
-This utility is used to set the credentials in `.npmrc` locally to authenticate against the NPM registry in Artifactory.
+This utility is used to set the credentials in `.npmrc` locally to authenticate against any public/private NPM Repository.
 
 ## Requirements
 
@@ -16,7 +16,6 @@ This utility is used to set the credentials in `.npmrc` locally to authenticate 
 ---
 ```bash
     npm install npm-auth
-    # Note, you will not need special authentication to authenticate with npmjs.org
 ```
 ####Usage
 ---
