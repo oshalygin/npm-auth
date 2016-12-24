@@ -18,6 +18,9 @@
     "type": "git",
     "url": "git+https://github.com/oshalygin/npm-auth.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "bin": {
     "npm-auth": "dist/npm-auth.js"
   },
@@ -25,8 +28,7 @@
     "url": "https://github.com/oshalygin/npm-auth/issues"
   },
   "homepage": "https://github.com/oshalygin/npm-auth#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
