@@ -21,7 +21,7 @@ after_success:
 
 deploy:
   on:
-      branch: master
+    branch: master
   provider: npm
   email: $NPM_REGISTRY_EMAIL
   api_key: $NPM_REGISTRY_API_KEY
