@@ -6,18 +6,14 @@ import { chalkError, chalkSuccess } from './chalkConfiguration';
 
 export const availableArguments = () => {
   console.error('arguments:');
-  console.error('   type            (required): specify the kubernetes configuration type(rc, replication-controller, secret)');
-  console.error('   image           specify the image name');
-  console.error('   secure-token    specify the base64 encoded docker configuration');
-  console.error('   file-path       (required): specify the location of the configuration file');
-  console.error('   get-rc-name     Return the current Replication Controller Name');
+  console.error('   repository      (required): the registry repository, eg: npmjs.org');
+  console.error('   email           (required): your email address associated to this repositroy, format: you@email.com');
+  console.error('   secure-token    (required): your api key  which is used to authenticate');
+  console.error('   file-path       (optional): specify the location to output the configuration file');
+  console.error('   print           prints the local configuration file');
 };
 
-export const configurationTypes = () => {
-  console.error('available types:');
-  console.error('   rc                      Replication Controller');
-  console.error('   deployment              Deployment');
-  console.error('   replication-controller  Replication Controller, same as rc');
-  console.error('   secret                  Secret');
+export const invalidEmailFormat = () => {
+  console.error(chalkError('Invalid Email Format:'));
+  console.error('The format passed into the email property is invalid, example: you@email.com');
 };
-
