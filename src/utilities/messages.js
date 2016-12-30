@@ -17,3 +17,13 @@ export const invalidEmailFormat = () => {
   console.error(chalkError('Invalid Email Format:'));
   console.error('The format passed into the email property is invalid, example: you@email.com');
 };
+
+export const invalidFilePath = () => {
+  console.error(chalkError('Invalid File Path:'));
+  console.error('The path you specified does not exist.  This utility does not create paths.');
+};
+
+export const invalidRepository = () => {
+  console.error(chalkError('Invalid Repository:'));
+  console.error('The repository you specified returned a 404');
+};
