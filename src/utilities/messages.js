@@ -5,12 +5,12 @@
 import { chalkError, chalkSuccess } from './chalkConfiguration';
 
 export const availableArguments = () => {
-  console.error('arguments:');
-  console.error('   repository      (required): the registry repository, eg: npmjs.org');
-  console.error('   email           (required): your email address associated to this repositroy, format: you@email.com');
-  console.error('   secure-token    (required): your api key  which is used to authenticate');
-  console.error('   file-path       (optional): specify the location to output the configuration file');
-  console.error('   print           prints the local configuration file');
+  console.info('arguments:');
+  console.info('   registry      (required): the registry repository, eg: npmjs.org');
+  console.info('   email           (required): your email address associated to this repositroy, format: you@email.com');
+  console.info('   secure-token    (required): your api key  which is used to authenticate');
+  console.info('   file-path       (optional): specify the location to output the configuration file');
+  console.info('   print           prints the local configuration file');
 };
 
 export const invalidEmailFormat = () => {
@@ -23,7 +23,7 @@ export const invalidFilePath = () => {
   console.error('The path you specified does not exist.  This utility does not create paths.');
 };
 
-export const invalidRepository = () => {
-  console.error(chalkError('Invalid Repository:'));
-  console.error('The repository you specified returned a 404');
+export const invalidRegistry = () => {
+  console.error(chalkError('Invalid Registry:'));
+  console.error('The registry  you specified returned a 404');
 };
