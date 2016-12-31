@@ -27,3 +27,7 @@ export const invalidRegistry = () => {
   console.error(chalkError('Invalid Registry:'));
   console.error('The registry  you specified returned a 404');
 };
+
+export const successMessage = () => {
+  console.log(chalkSuccess('Successfully updated the local .npmrc file'));
+};

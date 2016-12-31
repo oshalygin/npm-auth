@@ -3,6 +3,7 @@
 /* eslint-disable no-process-env */
 import { writeFileSync } from 'fs';
 import { chalkSuccess } from './utilities/chalkConfiguration';
+import { successMessage } from './utilities/messages';
 const argv = require('minimist')(process.argv.slice(2));
 
 const secureTokenKey = 'secure-token';
@@ -23,4 +24,4 @@ const npmConfigurationFile = outputPath
 const fileContent = (`_auth=${apikey}${nextLine}always-auth=true${nextLine}email=${authEmail}${nextLine}registry=${registry}`);
 
 writeFileSync(npmConfigurationFile, fileContent);
-console.log(chalkSuccess('Successfully updated the local .npmrc file'));
+successMessage();
