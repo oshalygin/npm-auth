@@ -1,6 +1,6 @@
 {
   "name": "npm-auth",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Utility that sets the npmrc credentials based on environment variables",
   "author": "Oleg Shalygin <oshalygin@gmail.com>",
   "license": "MIT",
@@ -24,7 +24,9 @@
     "url": "https://github.com/oshalygin/npm-auth/issues"
   },
   "homepage": "https://github.com/oshalygin/npm-auth#readme",
-  "dependencies": {},
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",

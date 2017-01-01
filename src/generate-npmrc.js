@@ -2,7 +2,7 @@
 /* eslint-disable max-len */
 /* eslint-disable no-process-env */
 import { writeFileSync } from 'fs';
-import { chalkSuccess } from './utilities/chalkConfiguration';
+// import { chalkSuccess } from './utilities/chalkConfiguration';
 import { successMessage } from './utilities/messages';
 const argv = require('minimist')(process.argv.slice(2));
 
