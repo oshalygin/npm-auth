@@ -4,9 +4,19 @@
 /* eslint-disable max-len */
 import { chalkError, chalkSuccess } from './chalkConfiguration';
 
+export const helpDescription = () => {
+  console.info('This utility is used to set the credentials in .npmrc locally to authenticate against any public/private NPM Repository.');
+  console.info('You MUST set the registry, email, and secure-token properties.');
+  console.info('    Ex: npm-auth --registry=http://registry.npmjs.org --email=oshalygin@gmail.com --secure-token=14602980-0211-408e-aae8-72e6f8b9eb36');
+  console.info('\n');
+  console.info('To obtain your secure-token, please consult with your private NPM registry on how to obtain the API token.  If using npmjs.org, this is retrieved when you invoke `npm adduser`.  The api token will be set in `~/.npmrc`, you can extract it if you choose to do so but it\'s typically unnecessary.');
+  console.info('\n');
+};
+
+
 export const availableArguments = () => {
   console.info('arguments:');
-  console.info('   registry      (required): the registry repository, eg: npmjs.org');
+  console.info('   registry        (required): the registry repository, eg: npmjs.org');
   console.info('   email           (required): your email address associated to this repositroy, format: you@email.com');
   console.info('   secure-token    (required): your api key  which is used to authenticate');
   console.info('   file-path       (optional): specify the location to output the configuration file');
