@@ -23,6 +23,24 @@ export const availableArguments = () => {
   console.info('   print           prints the local configuration file');
 };
 
+export const missingEmailProperty = () => {
+  console.error(chalkError('Missing Email Property:'));
+  console.error('The email property, `--email=you@email.com` MUST be provided OR set as an Environment Variable.');
+  console.error('If the registry is set as an environment variable, verify that it is `NPM_REGISTRY_EMAIL`.');
+};
+
+export const missingRegistryProperty = () => {
+  console.error(chalkError('Missing Registry Property:'));
+  console.error('The registry property, `--registry=http://www.your-private-registry/npm` MUST be provided OR set as an Environment Variable.');
+  console.error('If the registry is set as an environment variable, verify that it is `NPM_REGISTRY`.');
+};
+
+export const missingApiTokenProperty = () => {
+  console.error(chalkError('Missing Secure Token Property:'));
+  console.error('The registry property, `--secure-token=aasd-123-zasdf-123-sfd` MUST be provided OR set as an Environment Variable.');
+  console.error('If the registry is set as an environment variable, verify that it is `NPM_REGISTRY_API_KEY`.');
+};
+
 export const invalidEmailFormat = () => {
   console.error(chalkError('Invalid Email Format:'));
   console.error('The format passed into the email property is invalid, example: you@email.com');
@@ -35,7 +53,7 @@ export const invalidFilePath = () => {
 
 export const invalidRegistry = () => {
   console.error(chalkError('Invalid Registry:'));
-  console.error('The registry  you specified returned a 404');
+  console.error('The registry you specified returned a 404');
 };
 
 export const successMessage = () => {

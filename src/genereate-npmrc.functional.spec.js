@@ -6,7 +6,7 @@ import fs from 'fs';
 
 const exec = require('child_process').exec;
 
-describe('Generating .npmrc Integration Tests', () => {
+describe('Generating .npmrc Functional Tests', () => {
 
   const sut = 'node ./dist/generate-npmrc.js';
 
@@ -79,25 +79,6 @@ describe('Generating .npmrc Integration Tests', () => {
         const actual = npmrc[registryIndex];
 
         expect(actual).equals(expected);
-        done();
-      });
-  });
-
-  it('should create a .npmrc file in the src folder and contain the registry endpoint that was set', (done) => {
-    process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
-    process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
-    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
-
-    const expected = `registry=${process.env['NPM_REGISTRY']}`;
-    const registryIndex = 3;
-    exec(`${sut} ./src`,
-      () => {
-        const npmrc = fs.readFileSync('src/.npmrc', 'utf8').split('\n');
-        const actual = npmrc[registryIndex];
-
-        expect(actual).equals(expected);
-
-        fs.unlinkSync('src/.npmrc');
         done();
       });
   });

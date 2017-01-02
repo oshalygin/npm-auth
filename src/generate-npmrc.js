@@ -12,7 +12,8 @@ const filePathKey = 'file-path';
 const apikey = argv[secureTokenKey] || process.env.NPM_REGISTRY_API_KEY;
 const authEmail = argv.email || process.env.NPM_REGISTRY_EMAIL;
 const registry = argv.registry || process.env.NPM_REGISTRY;
-const outputPath = argv[filePathKey] || process.argv[2]; // The first argument(after nodelib and the file) is the path where the .npmrc file will be located
+
+const outputPath = argv[filePathKey];
 const nextLine = '\n';
 
 console.log('Creating a temporary .npmrc file which will be used to authenticate');
