@@ -1,6 +1,7 @@
 import { expect } from 'chai';
 import {
-  parseRequiredProperties
+  parseRequiredProperties,
+  missingRequiredFields
 } from './requiredFields.js';
 
 describe('Required Fields', () => {
@@ -72,6 +73,54 @@ describe('Required Fields', () => {
 
     const actual = parseRequiredProperties(updatedArgv);
     expect(actual).deep.equals(expected);
+  });
+
+  it('should return false if all fields were passed in to missingRequiredFields', () => {
+    const requiredFields = {
+      apikey: 'asdfasdf',
+      authEmail: 'oshalygin@gmail.com',
+      registry: 'http://www.npmjs.org/npm'
+    };
+
+    const actual = missingRequiredFields(requiredFields);
+    expect(actual).equals(false);
+  });
+
+  it('should return true if the apikey is undefined', () => {
+    const requiredFields = {
+      authEmail: 'oshalygin@gmail.com',
+      registry: 'http://www.npmjs.org/npm'
+    };
+
+    const actual = missingRequiredFields(requiredFields);
+    expect(actual).equals(true);
+  });
+
+  it('should return true if the registry is undefined', () => {
+    const requiredFields = {
+      apikey: 'asdfasdf',
+      authEmail: 'oshalygin@gmail.com'
+    };
+
+    const actual = missingRequiredFields(requiredFields);
+    expect(actual).equals(true);
+  });
+
+  it('should return true if the email is undefined', () => {
+    const requiredFields = {
+      apikey: 'asdfasdf',
+      registry: 'http://www.npmjs.org/npm'
+    };
+
+    const actual = missingRequiredFields(requiredFields);
+    expect(actual).equals(true);
+  });
+
+  it('should return true if the the object passed in is empty', () => {
+    const requiredFields = {};
+
+    const actual = missingRequiredFields(requiredFields);
+    expect(actual).equals(true);
   });
 
 

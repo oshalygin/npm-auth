@@ -4,9 +4,9 @@ import path from 'path';
 import {
   // missingTypeArgument,
   // typeArgumentIsNullOrWhiteSpace,
-  // missingEmailProperty,
-  // missingApiTokenProperty,
-  // missingRegistryProperty,
+  missingEmailProperty,
+  missingApiTokenProperty,
+  missingRegistryProperty,
   filePathArgumentIsNullOrWhiteSpace,
   filePathIsInvalid
 } from './messages.js';
@@ -43,6 +43,30 @@ export function parseRequiredProperties(argv) {
   return utilityProperties;
 }
 
+
+/**
+ * @export {function}
+ * @param {any} requiredFields passed in fields object.
+ * @returns {boolean} returns true/false based on whether or not the required fields were passed in.
+ */
+export function missingRequiredFields(requiredFields) {
+  let missingRequiredField = false;
+
+  if (!requiredFields.apikey) {
+    missingApiTokenProperty();
+    missingRequiredField = true;
+  }
+  if (!requiredFields.authEmail) {
+    missingEmailProperty();
+    missingRequiredField = true;
+  }
+  if (!requiredFields.registry) {
+    missingRegistryProperty();
+    missingRequiredField = true;
+  }
+  return missingRequiredField;
+}
+
 /**
  * @export {function}
  * @param {any} argv command line args
@@ -66,4 +90,6 @@ export function parseRequiredFilePathArgument(argv, filePathKey) {
 
   return true;
 }
+
+
 

@@ -22,10 +22,28 @@ This utility is used to set the credentials in `.npmrc` locally to authenticate 
 ```bash
     # This is the first task that needs to run prior to "npm install"
     npm-auth
-    # The first argument following the source path is where the file will be placed.  If blank, the default is the current source directory.
-    node ./generate-npmrc.js ../my/other/path
 ```
 
+If you are not setting the properties as environment variables, you are welcome to passing them via the CLI
+
+```bash
+
+  #arguments:
+  #   registry        (required): the registry repository, eg: npmjs.org
+  #   email           (required): your email address associated to this repositroy, format: you@email.com
+  #   secure-token    (required): your api key  which is used to authenticate
+  #   file-path       (optional): specify the location to output the configuration file
+  #   print           prints the local configuration file
+
+
+    # Example usage
+    npm-auth --registry=http://www.your-private-registry/npm  --secure-token=aasd-123-zasdf-123-sfd --email=you@email.com
+    # Note you may pass in just one of the three required parameters if the other parameters are set as Environment variables
+
+    npm-auth --email=you@email.com
+    # Also note that anythning passed via the CLI will OVERRIDE the Environment variables, which allows you to flexibibly configure within your CI environment.
+    
+```
 Make sure to ignore the local `.npmrc` from the project solution
 ---
 **.gitignore**

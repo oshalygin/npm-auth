@@ -3,7 +3,12 @@
 /* eslint-disable no-process-env */
 import { writeFileSync } from 'fs';
 // import { chalkSuccess } from './utilities/chalkConfiguration';
-import { successMessage } from './utilities/messages';
+import {
+  missingRequiredFields
+} from './utilities/requiredFields.js';
+import {
+  successMessage
+} from './utilities/messages';
 const argv = require('minimist')(process.argv.slice(2));
 
 const secureTokenKey = 'secure-token';
@@ -12,6 +17,17 @@ const filePathKey = 'file-path';
 const apikey = argv[secureTokenKey] || process.env.NPM_REGISTRY_API_KEY;
 const authEmail = argv.email || process.env.NPM_REGISTRY_EMAIL;
 const registry = argv.registry || process.env.NPM_REGISTRY;
+
+const requiredFields = {
+  apikey,
+  authEmail,
+  registry
+};
+
+const missingFields = missingRequiredFields(requiredFields);
+if (missingFields) {
+  process.exit(1);
+}
 
 const outputPath = argv[filePathKey];
 const nextLine = '\n';

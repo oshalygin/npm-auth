@@ -10,6 +10,34 @@ describe('Generating .npmrc Functional Tests', () => {
 
   const sut = 'node ./dist/generate-npmrc.js';
 
+  it('should fail and display an error message if none of the properties are set or passed in', (done) => {
+
+    const expected = "Missing Secure Token Property:\nThe registry property, `--secure-token=aasd-123-zasdf-123-sfd` MUST be provided OR set as an Environment Variable.\nIf the registry is set as an environment variable, verify that it is `NPM_REGISTRY_API_KEY`.\nMissing Email Property:\nThe email property, `--email=you@email.com` MUST be provided OR set as an Environment Variable.\nIf the registry is set as an environment variable, verify that it is `NPM_REGISTRY_EMAIL`.\nMissing Registry Property:\nThe registry property, `--registry=http://www.your-private-registry/npm` MUST be provided OR set as an Environment Variable.\nIf the registry is set as an environment variable, verify that it is `NPM_REGISTRY`.\n"; //eslint-disable-line quotes
+
+    exec(sut,
+      (error, stdout, stderr) => {
+        const actual = stderr;
+        expect(actual).equals(expected);
+        done();
+      });
+
+  });
+
+  it('should fail and display an error message that the email was not set', (done) => {
+    process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
+    process.env['NPM_REGISTRY'] = 'http://www.some-private-npm-repository/registry';
+
+    const expected = "Missing Email Property:\nThe email property, `--email=you@email.com` MUST be provided OR set as an Environment Variable.\nIf the registry is set as an environment variable, verify that it is `NPM_REGISTRY_EMAIL`.\n"; //eslint-disable-line quotes
+
+    exec(sut,
+      (error, stdout, stderr) => {
+        const actual = stderr;
+        expect(actual).equals(expected);
+        done();
+      });
+
+  });
+
   it('should create a local .npmrc file and set the environment variables', (done) => {
     process.env['NPM_REGISTRY_API_KEY'] = 'abcd-some-key';
     process.env['NPM_REGISTRY_EMAIL'] = 'oshalygin@gmail.com';
@@ -79,6 +107,7 @@ describe('Generating .npmrc Functional Tests', () => {
         const actual = npmrc[registryIndex];
 
         expect(actual).equals(expected);
+                fs.unlinkSync('.npmrc');
         done();
       });
   });
