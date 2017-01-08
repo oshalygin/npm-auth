@@ -18,11 +18,3 @@ after_success:
       npm run start;
       sudo rm .npmrc;
     fi
-
-deploy:
-  on:
-    branch: master
-  provider: npm
-  email: $NPM_REGISTRY_EMAIL
-  api_key: $NPM_REGISTRY_API_KEY
-  
