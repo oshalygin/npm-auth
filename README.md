@@ -60,3 +60,7 @@ Command:
 ```bash
   npm run build
 ```
+
+####Contributing
+
+Looking to contribute to NPM-Auth?  I love seeing PR's and suggestions, please visit the [CONTRIBUTING](CONTRIBUTING.md) section for more information.
